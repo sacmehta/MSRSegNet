@@ -10,14 +10,19 @@ require 'image'
 local trainFile = opt.datapath .. '/train.txt'
 local valFile = opt.datapath .. '/test.txt'
 
-local classesName = { 'Void', 'aeroplane', 'bicycle', 'bird', 'boat',
- 'bottle', 'bus', 'car',  'cat', 'chair', 'cow',  'diningtable',  'dog', 'horse',
- 'motorbike',  'person',  'pottedplant', 'sheep',  'sofa',  'train',  'tvmonitor','bag',
-  'bed', 'bench', 'book', 'building', 'cabinet', 'ceiling', 'clothes', 'computer', 'cup',
- 'door', 'fence', 'floor', 'flower', 'food', 'grass', 'ground', 'keyboard', 'light',
-'mountain', 'mouse', 'curtain', 'platform', 'sign', 'plate', 'road', 'rock', 'shelves',
-'sidewalk', 'sky', 'snow', 'bedcloth', 'track', 'tree', 'truck', 'wall', 'water', 'window', 'wood'}
+--local classesName = { 'Void', 'aeroplane', 'bicycle', 'bird', 'boat',
+-- 'bottle', 'bus', 'car',  'cat', 'chair', 'cow',  'diningtable',  'dog', 'horse',
+-- 'motorbike',  'person',  'pottedplant', 'sheep',  'sofa',  'train',  'tvmonitor','bag',
+--'bed', 'bench', 'book', 'building', 'cabinet', 'ceiling', 'clothes', 'computer', 'cup',
+--'door', 'fence', 'floor', 'flower', 'food', 'grass', 'ground', 'keyboard', 'light',
+--'mountain', 'mouse', 'curtain', 'platform', 'sign', 'plate', 'road', 'rock', 'shelves',
+--'sidewalk', 'sky', 'snow', 'bedcloth', 'track', 'tree', 'truck', 'wall', 'water', 'window', 'wood'}
 
+
+local classesName = { 'Void', 'bicycle', 'bus', 'car',  'cat', 'cow',  'dog', 'horse',
+                    'motorbike',  'person',  'pottedplant', 'sheep',  'train',
+                    'bench', 'building', 'fence', 'grass', 'ground', 'mountain', 'platform', 'sign', 'road', 'rock', 
+                    'sidewalk', 'sky', 'track', 'tree', 'truck', 'wall', 'water'}
                
 local classes = #classesName
 
@@ -39,7 +44,8 @@ end
 
 trainImFileList = {}
 trainLblFileList = {}
-labelAddVal = 1
+--for modified dataset, lableAddVal = 0
+labelAddVal = 0
 
 -- compute the mean and standard deviation for training data
 -- do it offline
