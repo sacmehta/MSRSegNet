@@ -16,16 +16,21 @@ wget http://cvlab.postech.ac.kr/research/deconvnet/data/VOC2012_SEG_AUG.tar.gz
 
 ## Training Semantic Segmentation Models
 You can train the network as:
-* Training M-RiR on PASCAL VOC dataset
+* Training M-RiR using GPU-0 on the CamVid dataset
 
   ```
-      th run.lua --dataset pas --imHeight 224 --imWidth 224 --modelType 2 -r 0.01 -d 10 --lrDecayEvery 30 
+      CUDA_VISIBLE_DEVICES=0 th main.lua --dataset cv --imHeight 384 -imWidth 480 --modelType 2 -lr 0.0001 -d 10 -de 300 -optimizer adam -maxEpoch 100
   ```
   
-* Training M-Plain on the CAMVID dataset
+* Training M-Plain using GPU-0 and GPU-1 on the CAMVID dataset
 
   ```
-      th run.lua --dataset cv --modelType 1
+    CUDA_VISIBLE_DEVICES=0,1 th main.lua --dataset cv --imHeight 384 -imWidth 480 --modelType 1 -lr 0.0001 -d 10 -de 300 -optimizer adam -maxEpoch 100
+  ```
+* Training M-Hyper on the CAMVID dataset
+
+  ```
+    CUDA_VISIBLE_DEVICES=1,2 using GPU-1 and GPU-2 th main.lua --dataset cv --imHeight 384 -imWidth 480 --modelType 3 -lr 0.0001 -d 10 -de 300 -optimizer adam -maxEpoch 100
   ```
   
 ## Training Image Classification Models
