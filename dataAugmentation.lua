@@ -94,7 +94,7 @@ function dataAug.translate(im, label)
   --translate the image
   im = image.translate(im, rand_x, rand_y)
   label = image.translate(label, rand_x, rand_y)
-  
+  label[label:eq(0)] = 1
   return im, label
 end
 
