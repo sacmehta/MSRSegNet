@@ -35,6 +35,18 @@ elseif opt.dataset == 'pcon' then
     print('loading cached file')
   end
   dataset = torch.load(opt.dataCacheFileName)
+elseif opt.dataset == 'pas' then
+  if not paths.filep(opt.dataCacheFileName) then
+    print('Loading Pascal dataset from loadPascal')
+    require 'loadPascal'
+  else
+    print('loading cached file')
+  end
+  dataset = torch.load(opt.dataCacheFileName)
+else
+  print('Wrong dataset specified. Please check')
+  print('Exiting')
+  os.exit()
 end
 
 --number of classes in the dataset
