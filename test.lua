@@ -67,7 +67,11 @@ local function test(epoch, dataset)
   --save the model
   local filename = paths.concat(opt.snap, 'model-' .. epoch .. '.t7')
   print('saving model file: ' .. filename)
-  torch.save(filename, model:clearState())
+  if opt.dpt = true then
+  	torch.save(filename, model:get(1):clearState()) --remove the dpt layer
+  else
+	torch.save(filename, model:clearState())
+  end
   --save the confusion matrix
   local filenameCon = paths.concat(opt.snap, 'con-' .. epoch .. '.txt')
   print('saving confusion matrix: ' .. filenameCon)

@@ -72,7 +72,7 @@ function M.modelSetup()
             cudnn.fastest, cudnn.benchmark = true, true
          end)
       dpt.gradInput = nil
-  
+      opt.dpt = true
       model = dpt:cuda()
    end
    
