@@ -43,6 +43,7 @@ local function test(epoch, dataset)
     local lblImg = image.load(dataset.vallbl[i], 1, 'byte'):float()
     lblImg = image.scale(lblImg, opt.imWidth, opt.imHeight,  'simple')
     lblImg:add(dataset.labelAddVal)
+    lblImg[lblImg:gt(opt.classes)] = 1
     
     inputs[1] = rgbImg
     targets[1] = lblImg
