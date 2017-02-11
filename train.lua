@@ -110,7 +110,7 @@ local function train(epoch, dataset)
         local lblImg = image.load(dataset.trainlbl[shuffle[i]], 1, 'byte'):float()
         lblImg = image.scale(lblImg, opt.imWidth, opt.imHeight,  'simple')
         lblImg:add(dataset.labelAddVal)
-        lblImg[lblImg:gt(opt.classes)] = 1
+        lblImg[lblImg:gt(opt.classes)] = 1 -- in pascal dataset we have labels with value 255. Map such labels to 1 (background class)
 
 
         if rep%2 == 0 then
