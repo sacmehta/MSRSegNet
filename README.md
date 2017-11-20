@@ -29,9 +29,9 @@ wget http://cvlab.postech.ac.kr/research/deconvnet/data/VOC2012_SEG_AUG.tar.gz
 You can train the network as:
 * Training M-RiR using GPU-0 on the CamVid dataset
 
-  ```
+```
 CUDA_VISIBLE_DEVICES=0 th main.lua --dataset cv --imHeight 384 -imWidth 480 --modelType 2 -lr 0.0001 -d 10 -de 300 -optimizer adam -maxEpoch 100
-  ```
+```
   
 * Training M-Plain using GPU-0 and GPU-1 on the CAMVID dataset
 
