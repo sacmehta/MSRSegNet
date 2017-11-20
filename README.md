@@ -1,12 +1,12 @@
-# MResNet
+# MSRSegNet
 Efficient Multi-Scale Residual Network for Image Classification and Semantic Segmentation
 
 
 ## Datasets
-* CamVid dataset is provided in the data/CamVid folder. If you are using this dataset, please cite the following paper
+* Download the CamVid dataset from below github repository
+
 ```
-  i) Brostow, Fauqueur, Cipolla, Segmentation and Recognition Using Structure from Motion Point Clouds, ECCV 2008
-  ii) Brostow, Fauqueur, Cipolla, Semantic Object Classes in Video: A High-Definition Ground Truth Database, Pattern Recognition Letters
+https://github.com/alexgkendall/SegNet-Tutorial
 ```
 * Download the PASCAL VOC 2012 dataset using below link
 
@@ -19,14 +19,14 @@ You can train the network as:
 * Training M-RiR using GPU-0 on the CamVid dataset
 
   ```
-      CUDA_VISIBLE_DEVICES=0 th main.lua --dataset cv --imHeight 384 -imWidth 480 --modelType 2 -lr 0.0001 -d 10 -de 300 -optimizer adam -maxEpoch 100
+CUDA_VISIBLE_DEVICES=0 th main.lua --dataset cv --imHeight 384 -imWidth 480 --modelType 2 -lr 0.0001 -d 10 -de 300 -optimizer adam -maxEpoch 100
   ```
   
 * Training M-Plain using GPU-0 and GPU-1 on the CAMVID dataset
 
-  ```
-    CUDA_VISIBLE_DEVICES=0,1 th main.lua --dataset cv --imHeight 384 -imWidth 480 --modelType 1 -lr 0.0001 -d 10 -de 300 -optimizer adam -maxEpoch 100
-  ```
+```
+CUDA_VISIBLE_DEVICES=0,1 th main.lua --dataset cv --imHeight 384 -imWidth 480 --modelType 1 -lr 0.0001 -d 10 -de 300 -optimizer adam -maxEpoch 100
+```
 * Training M-Hyper on the CAMVID dataset
 
   ```
