@@ -1,6 +1,17 @@
 # MSRSegNet
 Efficient Multi-Scale Residual Network for Image Classification and Semantic Segmentation
 
+## Results
+* Our segmentation network achieves an mIOU of 81 on the PASCAL VOC dataset while running at about 21 fps on NVIDIA TitanX Pascal.
+```
+http://host.robots.ox.ac.uk:8080/anonymous/NQRTFB.html
+```
+* Our segmentation network achieves an mIOU of 61.12 on the PASCAL VOC dataset while running at about 60 fps on NVIDIA TitanX Pascal with an input image of size 224 x 224.
+```
+http://host.robots.ox.ac.uk:8080/anonymous/IJV89W.html
+```
+* Our classification network achieves a top-5 error of 8.47% on the ImageNet Validation dataset.
+
 
 ## Datasets
 * Download the CamVid dataset from below github repository
